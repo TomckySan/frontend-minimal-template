@@ -1,0 +1,38 @@
+{
+  "name": "frontend-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "ava": "^0.24.0",
+    "babel-eslint": "^8.1.2",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.23.2",
+    "cssnano": "^3.10.0",
+    "eslint": "^4.14.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-normalize": "^4.0.0",
+    "stylelint": "^8.4.0",
+    "uglify-js": "^3.3.4"
+  },
+  "scripts": {
+    "start": "browser-sync start --server ./ --files './build/**/*, ./*.html' --no-open",
+    "watch": "npm run watch-js & npm run watch-css",
+    "watch-js": "babel ./src/js/main.js -o ./build/js/main.min.js -s -w",
+    "watch-css": "postcss -c ./postcss.config.js src/css/main.css -o build/css/main.min.css -m -w",
+    "build": "npm run lint && (npm run build-js & npm run build-css)",
+    "lint": "npm run lint-js & npm run lint-css",
+    "build-js": "babel ./src/js/main.js | uglifyjs --compress drop_console=true --mangle -o ./build/js/main.min.js",
+    "build-css": "postcss -c ./postcss.config.js src/css/main.css -o build/css/main.min.css",
+    "lint-js": "eslint ./src/js",
+    "lint-css": "stylelint ./src/css",
+    "test": "ava -v"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

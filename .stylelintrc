@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "indentation": 2,
+    "color-hex-case": "lower"
+  }
+}
