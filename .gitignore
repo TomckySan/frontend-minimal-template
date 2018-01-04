@@ -1,4 +1,11 @@
 /node_modules
-/build
+/build/*
+!/build/css/
+/build/css/*
+!/build/js
+/build/js/*
+!/build/css/.gitkeep
+!/build/js/.gitkeep
 package-lock.json
+*.swp
 .DS_Store
