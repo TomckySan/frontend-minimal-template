@@ -1,10 +1,14 @@
 // dummy script
 [1, 2, 3].map(n => n + 1);
 
-function cube(x) {
+function cubeFunc(x) {
   return x * x * x;
 }
 
-module.exports = {
-  cube: cube
-};
+class CubeClass {
+  constructor(x) {
+    this.volume = x * x * x;
+  }
+}
+
+export { cubeFunc, CubeClass }
