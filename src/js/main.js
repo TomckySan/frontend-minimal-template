@@ -1,7 +1,7 @@
 // dummy script
 [1, 2, 3].map(n => n + 1);
 
-function cubeFunc(x) {
+const cubeFunc = (x) => {
   return x * x * x;
 }
 
