@@ -26,11 +26,11 @@
     "start": "browser-sync start --server ./ --files './build/**/*, ./*.html' --no-open",
     "watch": "npm run watch-js & npm run watch-css",
     "watch-js": "babel ./src/js/main.js -o ./build/js/main.min.js -s -w",
-    "watch-css": "postcss -c ./postcss.config.js src/css/main.css -o build/css/main.min.css -m -w",
+    "watch-css": "postcss -c ./postcss.config.js src/css/* -d build/css -x '.min.css' -m -w",
     "build": "npm run lint && (npm run build-js & npm run build-css)",
     "lint": "npm run lint-js & npm run lint-css",
     "build-js": "babel ./src/js/main.js | uglifyjs --compress drop_console=true --mangle -o ./build/js/main.min.js",
-    "build-css": "postcss -c ./postcss.config.js src/css/main.css -o build/css/main.min.css",
+    "build-css": "postcss -c ./postcss.config.js src/css/* -d build/css -x '.min.css'",
     "lint-js": "eslint ./src/js",
     "lint-css": "stylelint ./src/css",
     "test": "ava -v"
